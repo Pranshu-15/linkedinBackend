@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "this is our first Major project",
+  "description": "LinkedIn clone backend",
   "license": "ISC",
   "author": "ayush sahu",
   "type": "module",
