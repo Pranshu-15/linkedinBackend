@@ -13,16 +13,21 @@ import notificationRouter from "./routes/notification.routes.js"
 dotenv.config()
 let app=express()
 let server=http.createServer(app)
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://linkedinfrontend-31xu.onrender.com"
+];
+
 export const io=new Server(server,{
     cors:({
-        origin:"http://localhost:5173",
+        origin: allowedOrigins,
         credentials:true
     })
 })
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin: allowedOrigins,
     credentials:true
 }))
 let port=process.env.PORT || 5000
