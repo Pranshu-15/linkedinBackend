@@ -27,11 +27,11 @@ export const updateProfile=async (req,res)=>{
    let profileImage;
    let coverImage
    console.log(req.files)
-       if(req.files.profileImage){
-        profileImage=await uploadOnCloudinary(req.files.profileImage[0].path)
+       if(req.files && req.files.profileImage){
+        profileImage=await uploadOnCloudinary(req.files.profileImage[0].buffer)
        }
-       if(req.files.coverImage){
-        coverImage=await uploadOnCloudinary(req.files.coverImage[0].path)
+       if(req.files && req.files.coverImage){
+        coverImage=await uploadOnCloudinary(req.files.coverImage[0].buffer)
        }
 
        let user=await User.findByIdAndUpdate(req.userId,{
